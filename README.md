@@ -4,22 +4,18 @@ Network Packet Analyzer
 from scapy.all import sniff, IP, TCP, UDP, ICMP, Raw
 from datetime import datetime
 
-# Log file
 log_file = "danny_sniffer_log.txt"
 
-# Show heading
 print("=" * 60)
 print("🕵️‍♂️  DANNY'S PACKET SNIFFER  📡")
 print("Tracking packets clearly, cleanly, and with a smile 😎")
 print("=" * 60 + "\n")
 print("📶 Sniffing started... Press Ctrl + C to stop.\n")
 
-# Save to log file
 def log_to_file(text):
     with open(log_file, "a") as f:
         f.write(text + "\n")
 
-# Handle each packet
 def process_packet(packet):
     if IP in packet:
         src = packet[IP].src
